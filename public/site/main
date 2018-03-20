@@ -1,0 +1,300 @@
+<br>
+<style type="text/css">
+div#rotator {position:relative; height:150px; margin-left: 15px;}
+div#rotator ul li {float:left; position:absolute; list-style: 
+div#rotator ul li.show {z-index:500;}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+ 
+<!-- Автор Dylan Wagstaff, http://www.alohatechsupport.net -->
+<script type="text/javascript">
+ 
+function theRotator() {
+	//Устанавливаем прозрачность всех картинок в 0
+	$('div#rotator ul li').css({opacity: 0.0});
+ 
+	//Берем первую картинку и показываем ее (попути включаем полную видимость)
+	$('div#rotator ul li:first').css({opacity: 1.0});
+ 
+	//Вызываем функцию rotator для запуска слайдшоу, 5000 = смена картинок происходит раз в 5 секунд
+	setInterval('rotate()',4000);
+}
+ 
+function rotate() {	
+	//Берем первую картинку
+	var current = ($('div#rotator ul li.show')?  $('div#rotator ul li.show') : $('div#rotator ul li:first'));
+ 
+	//Берем следующую картинку, когда дойдем до последней начинаем с начала
+	var next = ((current.next().length) ? ((current.next().hasClass('show')) ? $('div#rotator ul li:first') :current.next()) : $('div#rotator ul li:first'));	
+ 
+	//Подключаем эффект растворения/затухания для показа картинок, css-класс show имеет больший z-index
+	next.css({opacity: 0.0})
+	.addClass('show')
+	.animate({opacity: 1.0}, 3000);
+ 
+	//Прячем текущую картинку
+	current.animate({opacity: 0.0}, 1000)
+	.removeClass('show');
+};
+ 
+$(document).ready(function() {		
+	//Запускаем слайдшоу
+	theRotator();
+});
+ 
+</script>
+
+
+
+
+<table width="0%">
+  <tr>
+     <td width="100%">
+ <b> 
+<font size="4">
+<script> 
+var text="ПРОФЕССИОНАЛЬНАЯ ВИДЕО И ФОТОСЪЁМКА  В ДНЕПРЕ И ПО ВСЕЙ УКРАИНЕ"
+var speed=80
+
+if (document.all||document.getElementById){
+document.write('<span id="highlight">' + text + '</span>')
+var storetext=document.getElementById? document.getElementById("highlight") : document.all.highlight
+}
+else
+document.write(text)
+var hex=new Array("00","14","28","3C","50","64","78","8C","A0","B4","C8","DC","F0")
+var r=1
+var g=1
+var b=1
+var seq=1
+function changetext(){
+rainbow="#"+hex[r]+hex[g]+hex[b]
+storetext.style.color=rainbow
+}
+function change(){
+if (seq==6){
+b--
+if (b==0)
+seq=1
+}
+if (seq==5){
+r++
+if (r==12)
+seq=6
+}
+if (seq==4){
+g--
+if (g==0)
+seq=5
+}
+if (seq==3){
+b++
+if (b==12)
+seq=4
+}
+if (seq==2){
+r--
+if (r==0)
+seq=3
+}
+if (seq==1){
+g++
+if (g==12)
+seq=2
+}
+changetext()
+}
+function starteffect(){
+if (document.all||document.getElementById)
+flash=setInterval("change()",speed)
+}
+starteffect()
+</script></HTML></b> <FONT SIZE="-0">
+
+
+</td>
+
+
+
+
+<table >
+    <tr>
+        <td> <font color=#838B8B>
+
+<br>
+
+Здравствуйте уважаемые посетители нашего сайта !<br><br>
+  Профессиональный уровень нашей фото-видео студии, гарантирует индивидуальный и качественный результат, мы предлагаем вам видеосъемку высокой четкости в формате Full HD, высококачественную фотосъемку!
+  
+
+<br><br>
+
+
+
+Желаете, что бы фото видео съемка свадьбы, юбилея и других праздников прошли незаметно, но продуктивно, чтобы фото, полученные были самыми качественными и прекрасными в вашем фотоальбоме, а фильм о свадьбе был основным в семейной видеотеке, обращайтесь, мы с удовольствием для вас это сделаем! 
+<br><br>
+
+
+
+
+
+
+<font color=#cccc99>
+ тел. 066 732-64-83, 097 812-24-03, 093 572-46-56 </font>
+
+
+<br>
+<br>
+
+
+<center>
+<iframe src="https://player.vimeo.com/video/232854815?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<br>
+
+
+
+
+
+</td>
+  </tr>
+</table>
+<br>
+
+
+<font color=#cccc99>
+Studio "Victoria-K"<br>
+ 
+</font>
+
+
+
+
+
+
+
+
+
+<SMALL><font color=#999966>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<!--Этот скрипт взят с сайта veb-shpargalka.narod.ru-->
+ <Style>
+   A:Link{ Color: #000000; Text-decoration: underline}
+   A:Visited{ Color: #000000; Text-decoration: underline}
+   A:Hover{ Color: #000000; Text-decoration:
+
+
+
+
+
+
+
+
+
+
+ , body {font-family: verdana, arial, helvetica; font-size:11px;}  
+ </Style>
+
+<body text="#000000" link="#6495ED" alink="#B22222" bgcolor="#FDF5E6">
+<center>
+
+<SCRIPT language=JavaScript>
+<!--
+d0 = new Date('September 28, 2010');
+d1 = new Date();
+dt = (d1.getTime() - d0.getTime()) / (1000*60*60*24);
+document.write     ('Сайт работает  <B>' + Math.round(dt) + '</B>-й день.');
+-->
+</SCRIPT>
+</center>
+</body>
+</html>
+
+</SMALL></font>
+
+
+
+<table><tr><td> 
+
+ 
+
+ <!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="http://userapi.com/js/api/openapi.js?49"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 2995654, onlyWidgets: true});
+</script>
+
+<!-- Put this div tag to the place, where the Like block will be -->
+<div id="vk_like"></div>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like", {type: "button"});
+</script>      
+
+
+</script>
+</NOSCRIPT></td><td>
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28625413-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+
+</script>
+</NOSCRIPT></td><td>
+
+
+
+<div id="ok_shareWidget"></div>
+<script>
+!function (d, id, did, st) {
+  var js = d.createElement("script");
+  js.src = "http://connect.ok.ru/connect.js";
+  js.onload = js.onreadystatechange = function () {
+  if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+    if (!this.executed) {
+      this.executed = true;
+      setTimeout(function () {
+        OK.CONNECT.insertShareWidget(id,did,st);
+      }, 0);
+    }
+  }};
+  d.documentElement.appendChild(js);
+}(document,"ok_shareWidget","http://victoria-k.dp.ua/","{width:170,height:30,st:'rounded',sz:20,ck:3}");
+</script>
+
+
+</td></tr></table><br>
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name='yandex-verification' content='5a9060e2097c20a9' />
+
+
+
+
+
+

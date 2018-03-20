@@ -1,0 +1,6 @@
+ <?php  $ts = getdate(time());
+         if($ts['hours'] >= 4 && $ts['hours'] < 11){ print("<center><font style='font-size:20px;font-style:italic'><b>Доброе утро Олег </b></font></center>");}
+		 if($ts['hours'] >= 11 && $ts['hours'] < 17){ print("<center><font style='font-size:20px;font-style:italic'><b>Добрый день Олег</b></font></center>");}
+		 if($ts['hours'] >= 17 && $ts['hours'] < 22) {print("<center><font style='font-size:20px;font-style:italic'><b>Добрый вечер Олег</b></font></center>");}
+		 if($ts['hours'] >= 22 || ($ts['hours'] >= 0 && $ts['hours'] < 4)){ print("<center><font  style='font-size:20px;font-style:italic'><b>Доброй ночи Олег уже давно пора отдыхать :)</b></font></center>");}
+     ?>

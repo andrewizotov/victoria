@@ -1,0 +1,57 @@
+BODY {
+  BackGround-color: BLACK;
+ font: 13px/1.231 arial,helvetica,clean,sans-serif;
+    margin: 0 auto;
+    max-width: 910px;
+    min-width: 910px;
+    width:910px;
+    overflow-x: hidden;
+   
+}
+  td, tr, p, div {Font-Family: Verdana, ARIAL, HELVETICA, SANS-SERIF;Font-size: 12px;color:
+  Black;BackGround-color: transparent;}h3
+  {FONT:BOLD SMALL-CAPS 14PX VERDANA, ARIAL, HELVETICA, SANS-SERIF;}
+  h4 {Font-Family: Verdana, ARIAL, HELVETICA,
+  SANS-SERIF;Font-weight: bold; Font-size: 16px;color: #FF9900;}h5
+  {Font-Family: Verdana, ARIAL, HELVETICA, SANS-SERIF;Font-weight: bold; Font-size: 14px;color: #FF9900;}
+  h6 {color: #FF9900; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; }
+  li {list-style       : inside url(../images/arrow.png) 3px;
+  list-style-image : url(../images/arrow.png);}hr
+  {color            : #444444;height           : 1px;width            : 100%;}
+  .pathwaytext {color: black;Font-size: 12px;}ul#mainlevel-nav
+  {padding-left     : 0;margin-left      : 0;color            : White;float            : left;width            :
+  100%;font-family      : arial, helvetica, sans-serif;}ul#mainlevel-nav li
+  {display          : inline;}ul#mainlevel-nav li a {Text-decoration: none;color: #999999;Float: left;PADDING:0.2EM 1EM;
+  BACKGROUND:URL(../IMAGES/MENU_BAR_DIV.GIF) NO-REPEAT RIGHT;}
+  ul#mainlevel-nav li a:hover {Text-decoration: none;}a:link,
+  a:visited {Font-Family: Verdana, ARIAL,
+  HELVETICA, SANS-SERIF;Font-weight: bold;
+  Font-size: 12px;Text-decoration: none;color: BLACK;}
+  a:hover {color            : #FFFFFF;text-decoration  : none;}
+  a.mainlevel:link, a.mainlevel:visited
+  {Font-weight: bold;color: WHITE;/*COLOR:#808080;*/;}
+  a.mainlevel:hover {Text-decoration: underline;color: BLACK;}
+  a.category:link, a.category:visited {Font-weight: bold;color: #999999;}
+  a.category:hover {color: #3F7A12;}table.moduletable
+  {Margin-bottom: 5px;Width: 100%;BORDER-BOTTOM:1PX SOLID #000;}
+  table.moduletable th {Letter-spacing: 1px;Text-align: left;color:
+  BLACK;FONT:BOLD 11PX VERDANA, ARIAL, HELVETICA, SANS-SERIF;}table.moduletable td
+  {PADDING:2PX 2PX 5PX 2PX;}.button {color: BLACK;FONT:BOLD 12PX VERDANA, ARIAL, HELVETICA, SANS-SERIF;BORDER:1PX SOLID #000000;}
+  .inputbox {color: #CCCCCC;FONT:12PX VERDANA, ARIAL, HELVETICA, SANS-SERIF;BORDER:1PX SOLID #000000;}
+  .contentpane {BackGround-Image: url(w:/www/joomla/templates/a6greyflash/images/bg.gif);BORDER:NONE;}
+  .contentpaneopen {BORDER:NONE;}.contentheading, .componentheading
+  {color: BLACK;Height: 20px; Width: 100%;FONT:BOLD SMALL-CAPS 14PX VERDANA, ARIAL, HELVETICA,
+  SANS-SERIF;TEXT-ALIGN:LEFTBORDER-BOTTOM:1PX SOLID #000000;}.contentdescription
+  {Font-Family: Trebuchet MS, VERDANA, ARIAL, HELVETICA, SANS-SERIF;Font-size: 12px;Text-align: left;color: #CCCCCC;}
+  .category {Font-Family: Trebuchet MS, VERDANA, ARIAL, HELVETICA, SANS-SERIF;
+  Font-weight: bold; Font-size: 12px;Text-decoration: none;color: #999999;}
+  .sectiontableentry1 {}.sectiontableentry2 {}.sectiontableheader
+  {Font-weight: bold;color: WHITE;Height: 20;BACKGROUND:URL(../IMAGES/TOP_BAR_BACK.GIF);}
+  .small {Text-decoration: none;color: BLACK;FONT:10PX VERDANA, ARIAL, HELVETICA, SANS-SERIF;}
+  .smalldark {color: BLACK;FONT:10PX VERDANA, ARIAL, HELVETICA, SANS-SERIF;}
+  .createdate {Font-Family: Verdana, ARIAL, HELVETICA, SANS-SERIF;Font-weight: normal; Font-size: 10px;Text-decoration: none;color: #666666;}
+  .content_rating {Font-Family: Verdana, ARIAL, HELVETICA, SANS-SERIF;Font-weight: normal; Font-size: 10px;color: #0B0AC0;}
+  .content_vote {Font-Family: Verdana, ARIAL, HELVETICA, SANS-SERIF;Font-weight: normal;
+  Font-size: 10px;color: #CC9999;BACKGROUND:#33303C;}.content_vote.button
+  {Font-Family: Verdana, ARIAL, HELVETICA, SANS-SERIF;Font-weight:
+  bold; Font-size: 11px;Font-style: normal;color: #333333;Width: 60px;BACKGROUND:#EEEEEE;BORDER:1PX SOLID #999999;}.cpr{color:white;}

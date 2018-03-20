@@ -1,0 +1,37 @@
+<?php require_once("include/header.php"); ?>
+<br>
+<?php print($this->navigation); ?>
+<br><br>
+<center>
+<div align='left' style='padding-left:15px;padding-right:15px;padding-top:5px;padding-bottom:10px'><font color='#ffffff'><?php
+  if(isset($this->history)) print($this->history[0]['history']);
+?></font></div>
+<center>
+<div style="overflow: auto; height: 600px; width:885px;">
+<table><tr>
+<?php
+   $n=0;
+   if(isset($this->list_video)){
+
+     for( $i = 0; $i < count( $this->list_video ); $i++ ){
+      
+      
+?>
+            
+      <tr><td style='padding-left:10px;padding-top:30px;'>
+        <font color='#00ff00'><b><?php echo $this->list_video[$i]['title'];?></b></font><br>
+        <?php echo $this->list_video[$i]['code'];?>
+      </td></tr>
+<?php
+      
+     }
+     
+     
+     
+   }
+?>
+</tr></table><br>
+</div>
+</center>
+<?php require_once("include/footer.php"); ?>
+ 

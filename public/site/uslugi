@@ -1,0 +1,212 @@
+<A HREF="http://victoria-k.dp.ua/video/"title="Смотреть портфолио" target=""> <font color='#cc3366' onMouseOver=" this.color='#ffff66' " onMouseOut="this.color='#cc3366'" > <br> ВИДЕОСЪЁМКА <br>   </font></A>
+
+<font color=#838B8B>
+
+<br>Наша цель - создать для Вас неповторимый фильм, который станет для Вас, Ваших детей и потомков "окном в прошлое".<br>
+<br>
+Студия "Victoria-K" предлагает ПРОФЕССИОНАЛЬНУЮ видеосъёмку в формате Full HD ( высокой четкости), свадеб,  
+
+<A HREF="http://victoria-k.dp.ua/video/othervideo/"><font color='#838B8B' onMouseOver=" this.color='#FF0000' " onMouseOut="this.color='#838B8B'">  банкетов, юбилеев,   </font></A>
+
+
+
+ выпускных вечеров, выездные церемонии бракосочетания,
+
+<A HREF="http://victoria-k.dp.ua/video/childrenvideo/"><font color='#838B8B' onMouseOver=" this.color='#FF0000' " onMouseOut="this.color='#838B8B'">  детских утренников,   </font></A>
+
+
+корпоративных вечеринок, и других торжеств, возможна двух-трехкамерная видеосъёмка Full НD формате. Живой, непосредственный репортаж с места событий,видео-монтаж в Европейском стиле, запись Blu-ray, DVD дисков,
+
+<A HREF="http://victoria-k.dp.ua/video/weddingvideo/"><font color='#838B8B' onMouseOver=" this.color='#FF0000' " onMouseOut="this.color='#838B8B'"> изготовление свадебных,   </font></A> 
+
+
+<A HREF="http://victoria-k.dp.ua/video/othervideo/"><font color='#838B8B' onMouseOver=" this.color='#FF0000' " onMouseOut="this.color='#838B8B'"> рекламных видеороликов.   </font></A> 
+
+
+Прекрасная полиграфия боксов и дисков, оцифровка домашнего архива с любого носителя.Создание креативных фильмов и клипов по индивидуальным сценариям.<br>
+
+Оцифровка запись и монтаж старого видео с КИНОПРОЕКТОРА, пленка 8 ММ. на DVD или любой другой носитель.
+
+<br>
+
+
+
+
+<script type="text/javascript">
+
+function getElementPosition(elem)
+{
+w = elem.offsetWidth;
+h = elem.offsetHeight;
+
+l = 0;
+t = 0;
+
+while (elem)
+{
+l += elem.offsetLeft;
+t += elem.offsetTop;
+elem = elem.offsetParent;
+}
+
+return {"left":l, "top":t, "width": w, "height":h};
+}
+
+ 
+function mousePageXY(e) {
+  var x = 0, y = 0; 
+ 
+  if (e.pageX || e.pageY){
+      x = e.pageX - 5;
+      y = 21 + e.pageY;
+  }
+  if (e.clientX || e.clientY){
+      x = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft) - document.documentElement.clientLeft - 5;
+      y = 21 + e.clientY + (document.documentElement.scrollTop || document.body.scrollTop) - document.documentElement.clientTop;
+  }
+
+  return {"x":x, "y":y};
+};
+
+
+function deleteimg(imig){
+      if(document.getElementById('nimimg')){
+      testolldimg = document.getElementById('nimimg');
+      imig.parentNode.removeChild(testolldimg);
+  }
+};
+
+
+function dragimg(oldimg, even){
+      zWidth = getElementPosition(oldimg);
+      if(document.getElementById('nimimg')){
+      xypos = mousePageXY(even);
+      if(document.getElementById("nimimg").style.display == 'none'){
+        document.getElementById("nimimg").style.display = 'block';
+      }
+      lwidth = screen.width/2;
+      if((screen.width - lwidth) < zWidth.left){
+            document.getElementById("nimimg").style.left = xypos.x - document.getElementById("nimimg").width + 15 + "px";
+            document.getElementById("nimimg").style.top = xypos.y + "px";
+      }
+      else{
+            document.getElementById("nimimg").style.left = xypos.x + "px";
+            document.getElementById("nimimg").style.top = xypos.y + "px";
+      }
+        }
+};
+
+
+function resizeimg(imig, ri){
+  newsrc = imig.name;
+  xypos = mousePageXY(ri);
+  newimg = document.createElement('img');
+  newimg.src = newsrc;
+  newimg.style.position = 'absolute';
+  newimg.style.display = 'none';
+  newimg.id = 'nimimg';
+  imig.parentNode.appendChild(newimg);
+};
+
+</script>
+<br>
+<br>
+
+
+<A HREF="http://victoria-k.dp.ua/photo/"title="Смотреть портфолио" target=""  ><font color='#cc3366' onMouseOver=" this.color='#ffff66' " onMouseOut="this.color='#cc3366'" > <br> ФОТОСЪЕМКА <br>   </font></A>
+
+<br>Наша студия предлагает Вам широкий спектр услуг профессионального фототворчества. Изысканные художественные фотографии, созданные с душой и неповторимой стилистикой, изготовление выпускных, свадебных фотоальбомов. Слайд-шоу,рекламная и креативная фотография, фотосессии, ретушь портретов, коллажи, репортажная фотосъёмка, цветокорекция фотографий, высококачественная печать фотографий различных форматов.
+ <br>
+
+
+
+
+<br>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+function getElementPosition(elem)
+{
+w = elem.offsetWidth;
+h = elem.offsetHeight;
+
+l = 0;
+t = 0;
+
+while (elem)
+{
+l += elem.offsetLeft;
+t += elem.offsetTop;
+elem = elem.offsetParent;
+}
+
+return {"left":l, "top":t, "width": w, "height":h};
+}
+
+ 
+function mousePageXY(e) {
+  var x = 0, y = 0; 
+ 
+  if (e.pageX || e.pageY){
+      x = e.pageX - 5;
+      y = 21 + e.pageY;
+  }
+  if (e.clientX || e.clientY){
+      x = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft) - document.documentElement.clientLeft - 5;
+      y = 21 + e.clientY + (document.documentElement.scrollTop || document.body.scrollTop) - document.documentElement.clientTop;
+  }
+
+  return {"x":x, "y":y};
+};
+
+
+function deleteimg(imig){
+      if(document.getElementById('nimimg')){
+      testolldimg = document.getElementById('nimimg');
+      imig.parentNode.removeChild(testolldimg);
+  }
+};
+
+
+function dragimg(oldimg, even){
+      zWidth = getElementPosition(oldimg);
+      if(document.getElementById('nimimg')){
+      xypos = mousePageXY(even);
+      if(document.getElementById("nimimg").style.display == 'none'){
+        document.getElementById("nimimg").style.display = 'block';
+      }
+      lwidth = screen.width/2;
+      if((screen.width - lwidth) < zWidth.left){
+            document.getElementById("nimimg").style.left = xypos.x - document.getElementById("nimimg").width + 15 + "px";
+            document.getElementById("nimimg").style.top = xypos.y + "px";
+      }
+      else{
+            document.getElementById("nimimg").style.left = xypos.x + "px";
+            document.getElementById("nimimg").style.top = xypos.y + "px";
+      }
+        }
+};
+
+
+function resizeimg(imig, ri){
+  newsrc = imig.name;
+  xypos = mousePageXY(ri);
+  newimg = document.createElement('img');
+  newimg.src = newsrc;
+  newimg.style.position = 'absolute';
+  newimg.style.display = 'none';
+  newimg.id = 'nimimg';
+  imig.parentNode.appendChild(newimg);
+};
+
+</script>
+<br>
+<br>
+
+

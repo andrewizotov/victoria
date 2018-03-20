@@ -1,0 +1,42 @@
+<?php require_once("include/header_photo.php"); ?>
+<meta http-equiv="refresh"  url="<?php echo $this->domen?>/photo/wedding/">
+<br>
+<?php print($this->navigation); ?>
+<br><br>
+<div style="overflow: auto; height: 600px; width:885px;">
+<table><tr>
+<?php
+
+    $n = 0;
+
+    foreach($this->list_photo as $key=>$val){
+        
+        if( $n == 4 ){print("</tr><tr>"); $n=0;}
+?>
+         <td style='padding-top:5px;padding-left:15px;padding-bottom:10px;padding-right:25px;'>
+       <div align='center'>
+        <div align='center'>
+          <a href="<?php echo $val['link'];?>" rel='lightgallery[flowers]' title="<?php echo $val['comment'];?>">
+              
+         <?php
+           $pos = strripos( $val['link'], "/");
+           $name = trim( substr($val['link'], $pos + 1, strlen($val['link']) - $pos) );
+         ?>
+    
+     <img border=0 src="/ptrev.php?file=img/other/<?php echo $name;?>&max_size=150">
+         </a>
+        </div>
+        <div style='font-size:11px;font-family:cursive;width:150'>
+            <font color='#fffff'><?php echo $val['comment'];?></font>
+        </div>    
+       </div>
+      </td>
+<?php
+        $n++;
+    }
+?>
+</tr></table><br>
+</div>
+
+<?php require_once("include/footer.php"); ?>
+ 

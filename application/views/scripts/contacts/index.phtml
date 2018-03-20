@@ -1,0 +1,33 @@
+<?php require_once("include/header.php"); ?>
+<table>
+<tr>
+ <td valign='top' width='30%'>    
+  <?php
+    $text = $this->data->getNote("contacts");
+    print($text[0]['note']);
+  ?>
+  </td>
+  <td valign='top' align='center' width='70%'>
+    <div align=left style='padding-left:20px;'>
+         <font color='#ffffff'><?php
+           if(isset($this->status)) print($this->status);
+         ?></font>
+    </div>    
+    <div align=left style='padding-left:20px;'>
+        
+    <form name='fFeedBack' method='POST' action='/contacts/message/'>
+       <font color='#ffffff'><b>Ваш e-mail (<i>не обязательно</i>)</b></font><br>
+       <input type='text' style="width:340px" name='tFrom'><br>
+       <font color='#ffffff'><b>Сообщение</b></font><br>
+       <textarea name='tMessage' rows='10' cols=45></textarea>
+       <br><br>
+        <input type='submit' name='sFeedBack' value='отправить'>
+    </form>
+    </div>
+    <div align='left'><br></br><b><i><font color='#ffffff'>Внимание!<br>если Вы не указали свой e-mail  администрация сайта не сможет связаться с Вами</font></i></b></div>
+  </td>
+</tr>
+</table> 
+ 
+<?php require_once("include/footer.php"); ?>
+ 

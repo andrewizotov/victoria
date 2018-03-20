@@ -1,0 +1,162 @@
+<html>
+ <head lang="ru">
+ <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+ <meta http-equiv="Content-Language" content="ru-RU" />
+ <meta http-equiv="Cache-Control" content="no-cache" />
+ <title lang="ru">Админка Олега</title>
+ </head>
+ <body bgcolor="#D3D3D3"  alink="#008000"   vlink="#20B2AA" >
+ <?php include("time.phtml"); ?>
+<table >
+  <tr>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=main'><b><font color=<?php echo ($this->action =="main")?"#FF0000":"#000000";?> >Главная</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=about'><b><font color=<?php echo ($this->action =="about")?"#FF0000":"#000000";?> >О нас</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=uslugi'><b><font color=<?php echo ($this->action =="uslugi")?"#FF0000":"#000000";?> >Услуги</font</b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=price'><b><font color=<?php echo ($this->action =="price")?"#FF0000":"#000000";?> >Цены</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=contacts'><b><font color=<?php echo ($this->action =="contacts")?"#FF0000":"#000000";?> >Контакты</font</b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=photo'><b><font color=<?php echo ($this->action =="photo")?"#FF0000":"#000000";?> >Фото</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=video'><b><font color=<?php echo ($this->action =="video")?"#FF0000":"#000000";?> >Video</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=music'><b><font color=<?php echo ($this->action =="music")?"#FF0000":"#000000";?> >Музыка Тамада</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=more'><b><font color=<?php echo ($this->action =="more")?"#FF0000":"#000000";?> >Дополнительные услуги</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=links'><b><font color=<?php echo ($this->action =="links")?"#FF0000":"#000000";?> >Отзывы</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=note'><b><font color=<?php echo ($this->action =="note")?"#FF0000":"#000000";?> >Полезное</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/exit/'><font color=#000000><b>Выход</b></font</a></td>
+  </tr>  
+</table>
+
+<center>
+<?php
+  if( $this->action == "about" ){
+    if( isset($this->data) ) $text = $this->data->getNote("about");
+    if( isset($this->dataBred) ) $textBred = $this->data->getNote("about_bred");
+    print("<b>О нас<b>");
+  }
+  
+   if( $this->action == "more" ){
+    if( isset($this->data) ) $text = $this->data->getNote("more");
+    if( isset($this->dataBredMore) ) $textBred = $this->data->getNote("more_bredMore");
+    print("<b>Доп услуги<b>");
+  }
+
+  if( $this->action == "uslugi" ){
+    if( isset($this->data) ) $text = $this->data->getNote("more");
+    if( isset($this->dataBredWork) ) $textBred = $this->data->getNote("uslugi_bredWork");
+    print("<b>Услуги<b>");
+  }
+  
+  if( $this->action == "uslugi" ){
+     if( isset($this->data) ) $text = $this->data->getNote("uslugi");
+    print("<b>Услуги<b>");
+  }
+  if( $this->action == "contacts" ){
+     if( isset($this->data) )$text = $this->data->getNote("contacts");
+    print("<b>Контакты<b>");
+  }
+  if( $this->action == "main" ){
+     if( isset($this->data) ) $text = $this->data->getNote("main");
+     if( isset($this->dataMainBred) ) $textBred = $this->data->getNote("main_bredMain");
+    
+     print("<b>Главная<b>");
+  }
+  if( $this->action == "note" ){
+     if( isset($this->data) ) $text = $this->data->getNote("note");
+     if( isset($this->dataNoteBred) ) $textBred = $this->data->getNote("note_bredNote");
+
+     print("<b>Главная<b>");
+  }
+  if( $this->action == "price" ){
+    if( isset($this->data) ) $text = $this->data->getNote("price");
+    print("<b>Цены<b>");
+  }
+  if( $this->action == "music" ){
+     if( isset($this->data) )$text = $this->data->getNote("music");
+    print("<b>Музыка Тамада<b>");
+  }
+ 
+  if( $this->action == "links" ){
+   
+   
+     print("<b>Отзывы<b>");
+     require_once("otzivi.phtml");
+     exit();
+  }
+ if(isset($this->action)){ ?>
+    <form name='fDesc' method="POST" action="/admin/save/">
+      <textarea rows="20" cols="100" name='tDesc'><?php if(isset($this->data)) print($text[0]['note']); ?></textarea><br>
+      <input type="hidden" value="<?php echo $this->action;?>" name='hAction'>
+      <input type="submit" value="Добавить" name='sDesc'>
+    </form> 
+<?php} 
+  if( $this->action == "about" ){
+    echo "<br><br> <font style='font-size:10px'>Оставляю на всякий случай, но думаю не понадобится больше <br>Использовать только если уж ну очень много текста</font>";
+?>
+  <form name='fBred' method="POST" action="/admin/savebred/">
+      <textarea rows="10" cols="100" name='tDesc'><?php if(isset($this->dataBred)) print($textBred[0]['note']); ?></textarea><br>
+      <input type="hidden" value="<?php echo $this->action;?>_bred" name='hAction'>
+      <input type="submit" value="Добавить" name='sDescBred'>
+  </form> 
+<?php
+  }
+
+  if( $this->action == "more" ){
+    echo "<br><br> <font style='font-size:10px'>Оставляю на всякий случай, но думаю не понадобится больше <br>Использовать только если уж ну очень много текста</font>";
+?>
+  <form name='fBredMore' method="POST" action="/admin/savebredmore/">
+   <textarea rows="10" cols="100" name='tDesc'><?php if(isset($this->dataBredMore)) print($textBred[0]['note']); ?></textarea><br>
+   <input type="hidden" value="<?php echo $this->action;?>_bredMore" name='hAction'>
+   <input type="submit" value="Добавить" name='sDescBredMore'>
+  </form>
+   
+<?php
+  }
+?>
+
+
+<?php
+  if( $this->action == "uslugi" ){
+    echo "<br><br> <font style='font-size:10px'>Оставляю на всякий случай, но думаю не понадобится больше <br>Использовать только если уж ну очень много текста</font>";
+?>
+  <form name='fBredMore' method="POST" action="/admin/savebredwork/">
+   <textarea rows="10" cols="100" name='tDesc'><?php if(isset($this->dataBredWork)) print($textBred[0]['note']); ?></textarea><br>
+   <input type="hidden" value="<?php echo $this->action;?>_bredWork" name='hAction'>
+   <input type="submit" value="Добавить" name='sDescBredWork'>
+  </form>
+<?php
+  }
+?>
+
+
+<?php
+  if( $this->action == "main" ){
+    echo "<br><br> <font style='font-size:10px'>Оставляю на всякий случай, но думаю не понадобится больше <br>Использовать только если уж ну очень много текста</font>";
+?>
+  <form name='fBredMain' method="POST" action="/admin/savebredmain/">
+   <textarea rows="10" cols="100" name='tDesc'><?php if(isset($this->dataMainBred)) print($textBred[0]['note']); ?></textarea><br>
+   <input type="hidden" value="<?php echo $this->action;?>_bredMain" name='hAction'>
+   <input type="submit" value="Добавить" name='sDescBredMain'>
+  </form>
+<?php
+  }
+?>
+
+
+<?php
+  if( $this->action == "note" ){
+    echo "<br><br> <font style='font-size:10px'>Оставляю на всякий случай, но думаю не понадобится больше <br>Использовать только если уж ну очень много текста</font>";
+?>
+  <form name='fBredNote' method="POST" action="/admin/savebrednote/">
+   <textarea rows="10" cols="100" name='tDesc'><?php if(isset($this->dataNoteBred)) print($textBred[0]['note']); ?></textarea><br>
+   <input type="hidden" value="<?php echo $this->action;?>_bredNote" name='hAction'>
+   <input type="submit" value="Добавить" name='sDescBredNote'>
+  </form>
+<?php
+  }
+?>
+
+
+
+</center> 
+</body>    
+</html>
+
+    

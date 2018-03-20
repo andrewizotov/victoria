@@ -1,0 +1,8 @@
+<?php require_once("include/header.php"); ?>
+  <?php
+    $text = $this->data->getNote("about");
+    $textBred = $this->data->getNote("about_bred");
+    print($text[0]['note']."<br>".$textBred[0]['note']);
+  ?>
+<?php require_once("include/footer.php"); ?>
+ 

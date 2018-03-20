@@ -1,0 +1,206 @@
+<html>
+<header>    
+ <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</header>
+<body>
+<?php include("time.phtml"); ?>
+<table>
+  <tr>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=main'><b><font color=<?php echo ($this->action =="main")?"#FF0000":"#000000";?> >Главная</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=about'><b><font color=<?php echo ($this->action =="about")?"#FF0000":"#000000";?> >О нас</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=uslugi'><b><font color=<?php echo ($this->action =="uslugi")?"#FF0000":"#000000";?> >Услуги</font</b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=price'><b><font color=<?php echo ($this->action =="price")?"#FF0000":"#000000";?> >Цены</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=contacts'><b><font color=<?php echo ($this->action =="contacts")?"#FF0000":"#000000";?> >Контакты</font</b></a></td>
+     <td><a href='<?php echo $this->domen;?>/admin/?type=more'><b><font color=<?php echo ($this->action =="more")?"#FF0000":"#000000";?> >Отзывы</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/?type=photo'><b><font color=<?php echo ($this->action =="photo")?"#FF0000":"#000000";?> >Фото</font></b></a></td>
+   <td><a href='<?php echo $this->domen;?>/admin/exit/'><b><font color=#000000>Выход</b></font</a></td>
+  </tr>  
+</table>
+<div>
+  <font color='#FF0000'>Оптимальный размер флеш плейра 400 на 350 , в коде плейра нужно найти все атрибуты width (ширина) и height (высота) <br>
+  их обычно может быть две пары и выставить так width="400" height="350"</font>
+</div>
+<br><br>
+<div>
+
+<b>Свадьба</b>
+<br>предистория:<br>
+<form name='fWeddHistory' method='POST' action='/admin/history/?type=1'>
+  <textarea name='tHistory' rows='7' cols='70'><?
+     if(isset($this->history_wedd)) print($this->history_wedd[0]['history']);
+  ?></textarea>
+  <input type='submit' name='sSaveHistory' value='Save'>
+</form> 
+
+<form name='fVideoWeding' action="/admin/savewedvideo" method=POST>
+    Подпись<br>
+    <input type='text' style="width:300px" name='tTitle'><br>
+    Код плейреа с видео<br>
+    <textarea name='tVideo' rows='10' cols='70'></textarea>    
+    <input type='submit' value='добавить' name='sAdd'>
+</form>
+<br>
+
+<table><tr>
+<?php
+   $n = 0;
+   
+   for( $i = 0;  $i < count($this->listWed_video); $i++){
+   
+     if( $n == 3 ){print("</tr><tr>"); $n=0;}
+    
+     print("<td><a href='/admin/video/?del={$this->listWed_video[$i]['id']}' style='font-size:10px;'>Удалить</a>
+      <br>{$this->listWed_video[$i]['code']} </td>");
+?>
+     
+<?php
+    $n++; 
+    }
+?></tr>
+</table>
+
+<br>
+<br>    
+<b>Другое</b>
+<br>предистория:<br>
+<form name='fOtherHistory' method='POST' action='/admin/history/?type=5'>
+  <textarea name='tHistory' rows='7' cols='70'><?php
+     if(isset($this->history_other)) print($this->history_other[0]['history']);
+  ?></textarea>
+  <input type='submit' name='sSaveHistory' value='Save'>
+</form> 
+<form name='fVideoOther' action="/admin/saveothervideo" method=POST>
+    Подпись<br>
+    <input type='text' style="width:300px" name='tTitle'><br>
+    Код плейреа с видео<br>
+    <textarea name='tVideo' rows='10' cols='70'></textarea>    
+    <input type='submit' value='добавить' name='sAdd'>
+</form>
+<br>
+<table><tr>
+<?php
+   $n = 0;
+   
+   for( $i = 0;  $i < count($this->listOther_video); $i++){
+   
+     if( $n == 3 ){print("</tr><tr>"); $n=0;}
+    
+     print("<td><a href='/admin/video/?del={$this->listOther_video[$i]['id']}' style='font-size:10px;'>Удалить</a><br>{$this->listOther_video[$i]['code']} </td>");
+?>
+     
+<?php
+    $n++; 
+    }
+?></tr>
+</table>
+
+<br>
+<br>    
+<b>Love Story</b>
+<br>предистория:<br>
+<form name='fLoveHistory' method='POST' action='/admin/history/?type=2'>
+  <textarea name='tHistory' rows='7' cols='70'><?php
+     if(isset($this->history_love)) print($this->history_love[0]['history']);
+  ?></textarea>
+  <input type='submit' name='sSaveHistory' value='Save'>
+</form> 
+<form name='fVideoOther' action="/admin/savelovevideo" method=POST>
+    Подпись<br>
+    <input type='text' style="width:300px" name='tTitle'><br>
+    Код плейреа с видео<br>
+    <textarea name='tVideo' rows='10' cols='70'></textarea>    
+    <input type='submit' value='добавить' name='sAdd'>
+</form>
+<br>
+<table><tr>
+<?php
+   $n = 0;
+   
+   for( $i = 0;  $i < count($this->listStory_video); $i++){
+   
+     if( $n == 3 ){print("</tr><tr>"); $n=0;}
+    
+     print("<td><a href='/admin/video/?del={$this->listStory_video[$i]['id']}' style='font-size:10px;'>Удалить</a><br>{$this->listStory_video[$i]['code']} </td>");
+?>
+     
+<?php
+    $n++; 
+    }
+?></tr>
+</table>
+
+
+<br>
+<br>    
+<b>Детское</b>
+<br>предистория:<br>
+<form name='fChHistory' method='POST' action='/admin/history/?type=3'>
+  <textarea name='tHistory' rows='7' cols='70'><?php
+     if(isset($this->history_ch)) print($this->history_ch[0]['history']);
+  ?></textarea>
+  <input type='submit' name='sSaveHistory' value='Save'>
+</form> 
+<form name='fVideoOther' action="/admin/savechildvideo" method=POST>
+    Подпись<br>
+    <input type='text' style="width:300px" name='tTitle'><br>
+    Код плейреа с видео<br>
+    <textarea name='tVideo' rows='10' cols='70'></textarea>    
+    <input type='submit' value='добавить' name='sAdd'>
+</form>
+<br>
+<table><tr>
+<?php
+   $n = 0;
+   
+   for( $i = 0;  $i < count($this->listCh_video); $i++){
+   
+     if( $n == 3 ){print("</tr><tr>"); $n=0;}
+    
+     print("<td><a href='/admin/video/?del={$this->listCh_video[$i]['id']}' style='font-size:10px;'>Удалить</a><br>{$this->listCh_video[$i]['code']} </td>");
+?>
+     
+<?php
+    $n++; 
+    }
+?></tr>
+</table>
+
+
+<br>
+<br>    
+<b>Выпускные альбомы</b>
+<br>предистория:<br>
+<form name='fFinalsHistory' method='POST' action='/admin/history/?type=4'>
+  <textarea name='tHistory' rows='7' cols='70'><?php
+     if(isset($this->history_finals)) print($this->history_finals[0]['history']);
+  ?></textarea>
+  <input type='submit' name='sSaveHistory' value='Save'>
+</form> 
+<form name='fVideoOther' action="/admin/savefinalsvideo" method=POST>
+    Подпись<br>
+    <input type='text' style="width:300px" name='tTitle'><br>
+    Код плейреа с видео<br>
+    <textarea name='tVideo' rows='10' cols='70'></textarea>    
+    <input type='submit' value='добавить' name='sAdd'>
+</form>
+<br>
+<table><tr>
+<?php
+   $n = 0;
+   
+   for( $i = 0;  $i < count($this->listFinal_video); $i++){
+   
+     if( $n == 3 ){print("</tr><tr>"); $n=0;}
+    
+     print("<td><a href='/admin/video/?del={$this->listFinal_video[$i]['id']}' style='font-size:10px;'>Удалить</a><br>{$this->listFinal_video[$i]['code']} </td>");
+?>
+     
+<?php
+    $n++; 
+    }
+?></tr>
+</table>
+
+</div>
+</body>
+</html>  

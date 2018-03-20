@@ -1,0 +1,21 @@
+<div align=left>
+<?php
+   if( isset($this->data) ){
+     foreach( $this->data as $key=>$val ){
+       
+        print(date("d-m-Y")." {$val['name']}<a href='?type=links&del={$val['id']}'> <b>удалить</b></a>&nbsp");
+		if($val['allow'] == 1){
+		 print("<span style=\"background:#ffb2f5\"><b>Разрешен</b></span>");
+		}else
+		print("<a href='?type=links&allow={$val['id']}' style=\"font:#ff0000\"> <b>Разрешить</b></a><br>");
+?>
+
+        <div style='padding-bottom:20px;border:1px dashed;'><?php echo $val['text'];?></div>
+<?php
+     }
+   }
+?>
+</div>
+</center> 
+</body>    
+</html>
