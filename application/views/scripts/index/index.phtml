@@ -1,8 +1,5 @@
-<?php require_once("include/header.php"); ?>
 <?php
-    $text = $this->data->getNote("main");
-    $textBredMore = $this->data->getNote("main_bredMain");
-    
-    print( $text[0]['note']."<br>".$textBredMore[0]['note'] );
-  ?>    
-<?php require_once("include/footer.php"); ?>
+     /* @var $this Zend_View */
+     echo $this->article;
+?>
+

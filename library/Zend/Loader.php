@@ -51,6 +51,7 @@ class Zend_Loader
      */
     public static function loadClass($class, $dirs = null)
     {
+
         if (class_exists($class, false) || interface_exists($class, false)) {
             return;
         }
@@ -89,6 +90,7 @@ class Zend_Loader
                 }
             }
             $file = basename($file);
+
             self::loadFile($file, $dirs, true);
         } else {
             self::loadFile($file, null, true);

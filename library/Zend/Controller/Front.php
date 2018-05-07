@@ -876,6 +876,8 @@ class Zend_Controller_Front
             $this->setResponse($response);
         }
 
+
+
         /**
          * Register request and response objects with plugin broker
          */
@@ -887,6 +889,7 @@ class Zend_Controller_Front
          * Initialize router
          */
         $router = $this->getRouter();
+
         $router->setParams($this->getParams());
 
         /**
