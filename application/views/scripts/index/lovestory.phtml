@@ -11,12 +11,15 @@
     foreach($this->list_photo as $key=>$val ){
 
 
+        $pos = strripos( $val['link'], "/");
+        $name = trim( substr($val['link'], $pos + 1, strlen($val['link']) - $pos) );
+
         ?>
 
         <a href="<?php echo $this->url?>">
             <img alt=""
-                 src="<?php echo $val['link'];?>"
-                 data-image="/index/resize?file=<?php echo ltrim($val['link'], '/');?>"
+                 src="/index/resize?file=img/other/<?php echo $name;?>&max_size=250"
+                 data-image="<?php echo $val['link'];?>"
                  data-description=""
                  style="display:none">
         </a>
@@ -24,7 +27,5 @@
     <?php } ?>
 
 </div>
-
-
 
 

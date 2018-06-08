@@ -317,16 +317,11 @@ class IndexController extends Zend_Controller_Action
             $cache_mtime = filemtime(IMG_CACHE . $cache_file_name);
         } else {
             //загрузка миниатюры из кеша
-            var_dump('FROM CACHE');
             $fd = fopen(IMG_CACHE . $cache_file_name, "rb");
             $thumb_size = filesize(IMG_CACHE . $cache_file_name);
             $thumbnail = fread ($fd, $thumb_size);
             fclose ($fd);
         }
-        #header('Content-Type: image/png');
-        //время создания миниатюры
-        #header('Last-Modified: '.gmdate('D, d M Y H:i:s', $cache_mtime).' GMT');
-        #header('Content-Length: '.$thumb_size); //вывод миниатюры в браузер
         echo $thumbnail;
 
         exit();
