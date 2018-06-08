@@ -39,32 +39,32 @@
 
 <div id="content"></div>
 <script>
- 
+
   function loading(){
     lightgallery.init();
-    
+
     wait.hide();
   }
 </script>
 
 <body onload='loading();' class="yui-skin-sam">
  <script>
-  var wait =   new YAHOO.widget.Panel("wait",  
-                                        { width: "240px", 
-                                          fixedcenter: true, 
-                                          close: false, 
-                                          draggable: false, 
+  var wait =   new YAHOO.widget.Panel("wait",
+                                        { width: "240px",
+                                          fixedcenter: true,
+                                          close: false,
+                                          draggable: false,
                                           zindex:4,
                                           modal: true,
                                           visible: false
-                                         } 
+                                         }
                                      );
  wait.setHeader("Loading, please wait...");
  wait.setBody("<img src=\"<?=$this->domen?>/img/loading.gif\"/>");
  wait.render(document.body);
- 
- 
- 
+
+
+
  wait.show();
  document.getElementById('wait_mask').style.height = '1000px';
  </script>

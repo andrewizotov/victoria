@@ -11,19 +11,43 @@
 ">
     <meta name="robots" content="">
     <link rel="stylesheet" type="text/css" href="<?=$this->domen;?>/css/css.css">
-    <script src="<?=$this->domen;?>/js/lightgallery/lightgallery.js" type="text/javascript"></script>
-    <script src="<?=$this->domen;?>/js/lightgallery/lang/ru_utf8.js" type="text/javascript"></script>
-    <link href="<?=$this->domen;?>/js/lightgallery/skins/default/style.css" type="text/css" media="screen" rel="stylesheet">
+
     <link rel="icon" type="image/png" href="<?=$this->domen;?>/img/title.jpg">
 
-    <link rel="stylesheet" type="text/css" href="<?=$this->domen;?>/yui2/fonts/fonts-min.css">
-    <link rel="stylesheet" type="text/css" href="<?=$this->domen;?>/yui2/container/assets/skins/sam/container.css">
+
     <script type="text/javascript" src="<?=$this->domen;?>/yui2/yahoo-dom-event/yahoo-dom-event.js"></script>
 
-    <script type="text/javascript" src="<?=$this->domen;?>/yui2/connection/connection-min.js"></script>
-    <script type="text/javascript" src="<?=$this->domen;?>/yui2/animation/animation-min.js"></script>
-    <script type="text/javascript" src="<?=$this->domen;?>/yui2/dragdrop/dragdrop-min.js"></script>
-    <script type="text/javascript" src="<?=$this->domen;?>/yui2/container/container-min.js"></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/jquery-11.0.min.js'></script>
+
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-common-libraries.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-functions.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-thumbsgeneral.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-thumbsstrip.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-touchthumbs.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-panelsbase.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-strippanel.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-gridpanel.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-thumbsgrid.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-tiles.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-tiledesign.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-avia.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-slider.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-sliderassets.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-touchslider.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-zoomslider.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-video.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-gallery.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-lightbox.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-carousel.js'></script>
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/js/ug-api.js'></script>
+
+    <link rel='stylesheet' href='/unitegallery-master/source/unitegallery/css/unite-gallery.css' type='text/css' />
+
+    <script type='text/javascript' src='/unitegallery-master/source/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
+
+
+
+
     <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -49,9 +73,9 @@
     </style>
 </head>
 
-<body onload='lightgallery.init();' class="yui-skin-sam">
+<body class="yui-skin-sam">
 <a name="top" id="top"></a>
-<table border="0" align="center" width="750" cellspacing="2" cellpadding="3">
+<table border="0" align="center" width="100%" cellspacing="2" cellpadding="3">
     <tr>
         <td>
             <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -117,5 +141,19 @@
         </td>
     </tr>
 </table>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+        jQuery("#gallery").unitegallery({
+            tiles_type:"nested",
+            tiles_space_between_cols: 7 ,			//space between images
+            tiles_space_between_cols_mobile: 3,     //space between cols for mobile type
+        });
+
+    });
+
+</script>
 </body>
 </html>

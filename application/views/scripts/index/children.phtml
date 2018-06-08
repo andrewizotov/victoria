@@ -1,35 +1,27 @@
-<meta http-equiv="refresh"  url="/index/children/">
+
 <br>
 <?php print($this->navigation); ?>
 <br><br>
 
-<div style="overflow: auto; height: 600px; width:885px;">
-    <table><tr>
-            <?php
-            $n = 0;
+<div id="gallery" style="display:none;">
 
-            foreach($this->list_photo as $key=>$val ){
+    <?php
 
-                if( $n == 4 ){ print("</tr><tr>"); $n=0; }
-                ?>
-                <td style='padding-top:5px;padding-left:15px;padding-bottom:10px;padding-right:25px;'>
-                    <div align='center'>
-                        <div align='center'>
-                            <a href="<?php echo $val['link'];?>" rel='lightgallery[flowers]' title="<?php echo $val['comment'];?>">
+    foreach($this->list_photo as $key=>$val ){
 
-                                <img border=0 src="/index/resize?file=<?php echo ltrim($val['link'], '/');?>&max_size=150">
-                            </a>
-                        </div>
-                        <div style='font-size:11px;font-family:cursive;width:150'>
-                            <font color='#fffff'><?php if(isset($val['comment'])) echo $val['comment'];?></font>
-                        </div>
-                    </div>
-                </td>
-                <?php
-                $n++;
-            }
-            ?>
-        </tr></table><br>
+        ?>
+
+        <a href="<?php echo $this->url?>">
+            <img alt=""
+                 src="<?php echo $val['link'];?>"
+                 data-image="/index/resize?file=<?php echo ltrim($val['link'], '/');?>"
+                 data-description=""
+                 style="display:none">
+        </a>
+
+    <?php } ?>
+
 </div>
+
 
 
