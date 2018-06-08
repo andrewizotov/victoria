@@ -1,0 +1,51 @@
+<?php
+
+function SplitText($s,$wordmaxlen,$leftlimit,$rightlimit,$hyp)
+{
+    $marker = "\x01";
+
+    preg_match_all('/(<.*?\>)/si',$s,$tags);
+
+
+    $s =  preg_replace('/(<.*?\>)/si', $marker, $s);
+
+
+    $words = explode(' ', $s);
+
+    for ($i=0; $i<count($words); $i++)
+    {
+
+        if (strlen($words[$i])>=$wordmaxlen)
+            $words[$i] = $leftlimit . chunk_split($words[$i],$wordmaxlen,$hyp) . $rightlimit;
+    }
+
+    $s = implode(' ',$words);
+
+    for ($i=0; $i<count($tags[1]); $i++)
+        $s =  preg_replace("/$marker/si", $tags[1][$i], $s, 1);
+
+    return $s;
+}
+
+if(isset($this->data)){
+
+    foreach( $this->data as $key=>$val)
+    {
+        print("<font color='#FF8C00'><b><i>".date("d-m-Y",$val['ts'])." ".SplitText($val['name'],60,"<br>","<br>","<br>")."</i></font><br><br>");
+        print("<div style='padding-bottom:20px'><font color='#ffffff'>".SplitText($val['text'],60,"<br>","<br>","<br>")."</font></div>");
+    }
+}
+?>
+
+<br><br>
+<div style='padding-left:250px'>
+    <form name='fOtzivi' method=POST action='/links/add'>
+        <font color='ffffff'><b>Представьтесь пожалуйста<b></font><br>
+        <input type='text' name='tName' style='width:400px'><br>
+        <font color='ffffff'><b>Ваш отзыв<b></font><br>
+        <textarea name='tOtziv' rows=7 cols=54></textarea><br>
+        <input type='submit' name='sOtzivi' value='добавить'>
+    </form>
+</div>
+
+

@@ -597,6 +597,7 @@ class Zend_Db_Select
                     continue;
                 }
                 $direction = self::SQL_ASC;
+
                 if (preg_match('/(.*\W)(' . self::SQL_ASC . '|' . self::SQL_DESC . ')\b/si', $val, $matches)) {
                     $val = trim($matches[1]);
                     $direction = $matches[2];

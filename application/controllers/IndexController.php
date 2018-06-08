@@ -10,17 +10,193 @@ class IndexController extends Zend_Controller_Action
         $this->view->assign('article', $text);
     }
 
+
+    public function allvideoAction()
+    {
+        $this->view->assign("title", "<b>Видео</b><br><i>Портфолио видеографа Кривко Олега</i><br>");
+    }
+
     public function photoAction()
     {
         $this->view->assign("title", "<b>Фото</b><br><i>Портфолио фотографа Кривко Татьяны</i><br>");
     }
 
+    public function workAction()
+    {
+        $this->view->assign("title", "Услуги");
+        $note = new Application_Model_Site('site');
+        $text = $note->getNote('uslugi');
+        $this->view->assign("article", $text);
+
+    }
+
+
+    public function contactsAction()
+    {
+        $this->view->assign("title", "Контакты");
+        $note = new Application_Model_Site('site');
+        $text = $note->getNote('contacts');
+        $this->view->assign("article", $text);
+
+    }
+
+
+    public function aboutAction()
+    {
+        $this->view->assign("title", "О нас");
+        $note = new Application_Model_Site('site');
+        $text = $note->getNote('about');
+        $this->view->assign("article", $text);
+
+    }
+
+
+    public function noteAction()
+    {
+        $this->view->assign("title", "Полезное");
+        $note = new Application_Model_Site('site');
+        $text = $note->getNote('note');
+        $this->view->assign("article", $text);
+
+    }
+
+
+    public function reviewsAction()
+    {
+        $this->view->assign("title", "Отзывы");
+        $reviews = new Application_Model_Reviews();
+        $this->view->assign("data", $reviews->getPublicReviews());
+    }
+
+    public function moreAction()
+    {
+        $this->view->assign("title", "Дополнительные услуги");
+        $note = new Application_Model_Site('site');
+        $text = $note->getNote('more');
+        $this->view->assign("article", $text);
+    }
+
+    public function weddingvideoAction()
+    {
+
+        $video = new Application_Model_Video('video');
+
+        $this->view->assign("list_video", $video->getVideo($this->getRequest()->getActionName()));
+        $history = new Application_Model_History('history_video');
+
+        $this->view->assign("history", $history->get($this->getRequest()->getActionName()));
+
+        $this->view->assign("navigation",
+            "<a href='/index/video/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
+                             <a href='/index/weddingvideo/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
+                             <a href='/index/lovestoryvideo/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
+                             <a href='/index/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
+                             <a href='/index/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
+                             <a href='/index/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+    }
+
+
+    public function childrenvideoAction()
+    {
+
+        $video = new Application_Model_Video('video');
+
+        $this->view->assign("list_video", $video->getVideo($this->getRequest()->getActionName()));
+        $history = new Application_Model_History('history_video');
+
+        $this->view->assign("history", $history->get($this->getRequest()->getActionName()));
+
+        $this->view->assign("navigation",
+            "<a href='/index/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
+                             <a href='/index/weddingvideo/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
+                             <a href='/index/lovestoryvideo/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
+                             <a href='/index/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
+                             <a href='/index/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
+                             <a href='/index/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+    }
+
+
+    public function othervideoAction()
+    {
+
+        $video = new Application_Model_Video('video');
+
+        $this->view->assign("list_video", $video->getVideo($this->getRequest()->getActionName()));
+        $history = new Application_Model_History('history_video');
+
+        $this->view->assign("history", $history->get($this->getRequest()->getActionName()));
+
+        $this->view->assign("navigation",
+            "<a href='/index/video/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
+                             <a href='/index/weddingvideo/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
+                             <a href='/index/lovestoryvideo/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
+                             <a href='/index/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
+                             <a href='/index/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
+                             <a href='/index/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+    }
+
+
+    public function finalsvideoAction()
+    {
+
+        $video = new Application_Model_Video('video');
+
+        $this->view->assign("list_video", $video->getVideo($this->getRequest()->getActionName()));
+        $history = new Application_Model_History('history_video');
+
+        $this->view->assign("history", $history->get($this->getRequest()->getActionName()));
+
+        $this->view->assign("navigation",
+            "<a href='/video/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
+                             <a href='/index/weddingvideo/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
+                             <a href='/index/lovestoryvideo/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
+                             <a href='/index/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
+                             <a href='/index/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
+                             <a href='/index/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+    }
+
+
+    public function lovestoryvideoAction()
+    {
+
+        $video = new Application_Model_Video('video');
+
+        $this->view->assign("list_video", $video->getVideo($this->getRequest()->getActionName()));
+        $history = new Application_Model_History('history_video');
+
+        $this->view->assign("history", $history->get($this->getRequest()->getActionName()));
+
+        $this->view->assign("navigation",
+            "<a href='/video/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
+                             <a href='/index/weddingvideo/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
+                             <a href='/index/lovestoryvideo/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
+                             <a href='/index/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
+                             <a href='/index/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
+                             <a href='/index/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+    }
+
+    public function lovestoryAction()
+    {
+
+        $photo = new Application_Model_Photo('photo');
+
+        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()) );
+        $this->view->assign("navigation",
+            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
+                             <a href='/index/wedding/'><font color='#ffffff'><b><i>Свадьбы</i></b> /  </font>  </a>
+                             <a href='/index/lovestory/'><font color='#ff0000'><b><i>Love Story</i></b> /</font>  </a>
+                             <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
+                             <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
+                             <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+    }
+
     public function weddingAction()
     {
         $photo = new Application_Model_Photo('photo');
-        $this->view->assign("list_photo", $photo->getPhotoWed());
+        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
+
         $this->view->assign("navigation",
-            "<a href='/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
+            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
                              <a href='/index/wedding/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
                              <a href='/index/lovestory/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
                              <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
@@ -29,23 +205,53 @@ class IndexController extends Zend_Controller_Action
 
     }
 
-    public function admAction(){
 
 
+    public function childrenAction()
+    {
         $photo = new Application_Model_Photo('photo');
+        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
 
-        $l = $photo ->getPhotoWed();
-        foreach ($l as $key=>$val){
-            //echo $val['id'].' '.$val['link'].'<br>';
+        $this->view->assign("navigation",
+            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
+                             <a href='/index/wedding/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
+                             <a href='/index/lovestory/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
+                             <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
+                             <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
+                             <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
 
-            $link = str_replace('http://victoria-k.dp.ua','',$val['link']);
-            $photo->update(array('link'=>$link), 'id='.$val['id']);
-
-        }
-
-        exit();
     }
 
+
+    public function otherAction()
+    {
+        $photo = new Application_Model_Photo('photo');
+        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
+
+        $this->view->assign("navigation",
+            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
+                             <a href='/index/wedding/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
+                             <a href='/index/lovestory/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
+                             <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
+                             <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
+                             <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+
+    }
+
+    public function finalsAction()
+    {
+        $photo = new Application_Model_Photo('photo');
+        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
+
+        $this->view->assign("navigation",
+            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
+                             <a href='/index/wedding/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
+                             <a href='/index/lovestory/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
+                             <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
+                             <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
+                             <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+
+    }
 
     public function resizeAction()
     {

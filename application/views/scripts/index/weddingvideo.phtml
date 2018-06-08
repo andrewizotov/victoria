@@ -1,0 +1,28 @@
+<br>
+<?php print($this->navigation); ?>
+<br><br>
+<center>
+<div align='left' style='padding-left:15px;padding-right:15px;padding-top:5px;padding-bottom:10px'><font color='#ffffff'><?php
+  if(isset($this->history)) print($this->history[0]['history']);
+?></font></div>
+<div style="overflow: auto; height: 600px;  width:885px;">
+<table>
+<?php
+   if(isset($this->list_video)){
+
+     for( $i = 0; $i < count( $this->list_video ); $i++ ){
+?>
+            
+      <tr><td style='padding-top:30px;text-align: center' align="left">
+        <font color='#00ff00'><b><?php echo $this->list_video[$i]['title'];?></b></font><br>
+        <?php echo $this->list_video[$i]['code'];?>
+      </td></tr>
+<?php
+     }
+   }
+?>
+</table><br>
+</div>
+</center>
+
+ 

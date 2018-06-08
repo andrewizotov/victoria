@@ -3,8 +3,12 @@
 class Application_Model_Photo extends Zend_Db_Table
 {
 
+    private  $types = array();
+
     public function __construct($_table)
     {
+
+        $this->types = array('wedding'=>1,'lovestory'=>2,'children'=>3, 'finals'=>4, 'other'=>5);
 
         parent::__construct($_table);
     }
@@ -85,9 +89,9 @@ class Application_Model_Photo extends Zend_Db_Table
     }
 
 
-    public function getPhotoWed()
+    public function getPhotos($type)
     {
-        $select = $this->select()->where('type_photo = ?', 1);
+        $select = $this->select()->where('type_photo = ?', (int)$this->types[$type]);
         return $this->fetchAll($select);
     }
 
@@ -95,7 +99,7 @@ class Application_Model_Photo extends Zend_Db_Table
     public function getPhotoStory()
     {
 
-        return $this->Select("select * from {$this->mTable} where type_photo=2");
+        //return $this->Select("select * from {$this->mTable} where type_photo=2");
     }
 
     public function getPhotoCh()
