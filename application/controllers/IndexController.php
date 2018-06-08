@@ -8,17 +8,20 @@ class IndexController extends Zend_Controller_Action
         $note = new Application_Model_Site('site');
         $text = $note->getNote('main');
         $this->view->assign('article', $text);
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
 
     public function allvideoAction()
     {
         $this->view->assign("title", "<b>Видео</b><br><i>Портфолио видеографа Кривко Олега</i><br>");
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
     public function photoAction()
     {
         $this->view->assign("title", "<b>Фото</b><br><i>Портфолио фотографа Кривко Татьяны</i><br>");
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
     public function workAction()
@@ -27,6 +30,7 @@ class IndexController extends Zend_Controller_Action
         $note = new Application_Model_Site('site');
         $text = $note->getNote('uslugi');
         $this->view->assign("article", $text);
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
 
     }
 
@@ -37,6 +41,7 @@ class IndexController extends Zend_Controller_Action
         $note = new Application_Model_Site('site');
         $text = $note->getNote('contacts');
         $this->view->assign("article", $text);
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
 
     }
 
@@ -47,7 +52,7 @@ class IndexController extends Zend_Controller_Action
         $note = new Application_Model_Site('site');
         $text = $note->getNote('about');
         $this->view->assign("article", $text);
-
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
 
@@ -57,6 +62,7 @@ class IndexController extends Zend_Controller_Action
         $note = new Application_Model_Site('site');
         $text = $note->getNote('note');
         $this->view->assign("article", $text);
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
 
     }
 
@@ -66,6 +72,8 @@ class IndexController extends Zend_Controller_Action
         $this->view->assign("title", "Отзывы");
         $reviews = new Application_Model_Reviews();
         $this->view->assign("data", $reviews->getPublicReviews());
+
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
     public function moreAction()
@@ -74,6 +82,7 @@ class IndexController extends Zend_Controller_Action
         $note = new Application_Model_Site('site');
         $text = $note->getNote('more');
         $this->view->assign("article", $text);
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
     public function weddingvideoAction()
@@ -93,6 +102,7 @@ class IndexController extends Zend_Controller_Action
                              <a href='/index/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
                              <a href='/index/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
                              <a href='/index/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
 
@@ -113,6 +123,8 @@ class IndexController extends Zend_Controller_Action
                              <a href='/index/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
                              <a href='/index/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
                              <a href='/index/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
 
@@ -133,6 +145,8 @@ class IndexController extends Zend_Controller_Action
                              <a href='/index/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
                              <a href='/index/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
                              <a href='/index/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
 
@@ -153,6 +167,7 @@ class IndexController extends Zend_Controller_Action
                              <a href='/index/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
                              <a href='/index/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
                              <a href='/index/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
 
@@ -188,10 +203,13 @@ class IndexController extends Zend_Controller_Action
                              <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
                              <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
                              <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
     public function weddingAction()
     {
+
+
         $photo = new Application_Model_Photo('photo');
         $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
 
@@ -202,6 +220,8 @@ class IndexController extends Zend_Controller_Action
                              <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
                              <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
                              <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+
+
 
     }
 
@@ -209,6 +229,7 @@ class IndexController extends Zend_Controller_Action
 
     public function childrenAction()
     {
+
         $photo = new Application_Model_Photo('photo');
         $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
 
@@ -220,6 +241,7 @@ class IndexController extends Zend_Controller_Action
                              <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
                              <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
 
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
 
@@ -235,6 +257,7 @@ class IndexController extends Zend_Controller_Action
                              <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
                              <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
                              <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
 
     }
 
@@ -250,6 +273,8 @@ class IndexController extends Zend_Controller_Action
                              <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
                              <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
                              <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+
+        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
 
     }
 
