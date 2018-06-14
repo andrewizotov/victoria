@@ -1,91 +1,80 @@
-<?php 
+<?php
 
-require_once("MainController.php");
+class VideoController extends Zend_Controller_Action
+{
+    protected $navigation = array();
+    protected $types;
+    /**
+     * @var Zend_Translate
+     */
+    protected $translate;
 
-class VideoController extends MainController {
-    
-    public function indexAction() {
-	
-        parent::init();
-        $this->view->assign("title", "<b>Видео</b><br><i>Портфолио видеографа Кривко Олега</i><br>");
+    public function init()
+    {
+        /* @var $bootStrap Bootstrap */
+        $bootStrap = $this->getInvokeArg('bootstrap');
+        /* @var $translate Zend_Translate */
+        $this->translate = $bootStrap->getResource('translate');
+
+        $this->types = array(
+            'wedding' => 1,
+            'lovestory' => 2,
+            'children' => 3,
+            'finals' => 4,
+            'other' => 5
+        );
+
+
     }
-    
-    public function weddingvideoAction(){
-        
-        $video = new Video("video");
-        $this->view->assign("list_video", $video-> getVideo(1));
-        $history = new History("history_video");
-        $this->view->assign("history", $history-> get(1));
-        
-        $this->view->assign("navigation",
-                            "<a href='/video/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
-                             <a href='/video/weddingvideo/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/video/lovestoryvideo/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/video/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
-                             <a href='/video/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
-                             <a href='/video/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
-        
+
+    public function preDispatch()
+    {
+
+        /* @var $bootStr Bootstrap */
+        $bootStr = $this->getFrontController()->getParam('bootstrap');
+        $baseUrl = $bootStr->getBaseUrlFromSettings();
+
+        foreach ($this->types as $key => $val) {
+            $this->navigation[$key] = array(
+                'link' => $baseUrl . '/' . $this->getRequest()->getControllerName() . '/' . $key,
+                'translation' =>$this->translate->getAdapter()->_($key)
+            );
+        }
+
+        if (
+            $this->getRequest()->getActionName() !== 'show' &&
+            $this->getRequest()->getActionName() !== 'all'
+        ) {
+            $this->_forward('show', null, null, array('type' => $this->getRequest()->getActionName()));
+        }
     }
-    
-    public function lovestoryvideoAction(){
-        
-        $video = new Video("video");
-        $this->view->assign("list_video", $video-> getVideo(2));
-        $history = new History("history_video");
-        $this->view->assign("history", $history-> get(2));
-        $this->view->assign("navigation",
-                            "<a href='/video/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
-                             <a href='/video/weddingvideo/'><font color='#ffffff'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/video/lovestoryvideo/'><font color='#ff0000'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/video/childrenvideo/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
-                             <a href='/video/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
-                             <a href='/video/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+
+    public function allAction()
+    {
+        //$this->view->assign("title", "<b>Фото</b><br><i>Портфолио фотографа Кривко Татьяны</i><br>");
     }
-    
-    public function childrenvideoAction(){
-        
-        $video = new Video("video");
-        $this->view->assign("list_video", $video-> getVideo(3));
-        $history = new History("history_video");
-        $this->view->assign("history", $history-> get(3));
-        $this->view->assign("navigation",
-                            "<a href='/video/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
-                             <a href='/video/weddingvideo/'><font color='#ffffff'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/video/lovestoryvideo/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/video/childrenvideo/'><font color='#ff0000'><b><i>Детское</i></b> / </font> 
-                             <a href='/video/finalsvideo/'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
-                             <a href='/video/othervideo/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
+
+    public function showAction()
+    {
+        $config = array(
+            'adapter'   => 'Zend_Http_Client_Adapter_Curl',
+            'curloptions' => array(
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 30
+            ),
+        );
+
+
+        $client = new Zend_Http_Client(null, $config);
+
+
+
+        $photo = new Application_Model_Video('video');
+        $this->view->assign("vimeoClient", $client);
+        $this->view->assign("list_video", $photo->getVideo($this->getRequest()->getUserParam('type')));
+        $this->view->assign("navigation", $this->navigation);
     }
-    
-    public function finalsvideoAction(){
-        
-        $video = new Video("video");
-        $this->view->assign("list_video", $video-> getVideo(4));
-        $history = new History("history_video");
-        $this->view->assign("history", $history-> get(4));
-        $this->view->assign("navigation",
-                            "<a href='/video/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
-                             <a href='/video/weddingvideo'><font color='#ffffff'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/video/lovestoryvideo'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/video/childrenvideo'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
-                             <a href='/video/finalsvideo'><font color='#ff0000'><b><i>Выпускные вечера</i></b> / </font>  </a>
-                             <a href='/video/othervideo'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
-    }
-    
-    public function othervideoAction(){
-        
-        $video = new Video("video");
-        $this->view->assign("list_video", $video-> getVideo(5));
-        $history = new History("history_video");
-        $this->view->assign("history", $history-> get(5));
-        $this->view->assign("navigation",
-                            "<a href='/video/'><font color='#ffffff'><b><i>Видео</i></b> / </font></a> 
-                             <a href='/video/weddingvideo'><font color='#ffffff'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/video/lovestoryvideo'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/video/childrenvideo'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
-                             <a href='/video/finalsvideo'><font color='#ffffff'><b><i>Выпускные вечера</i></b> / </font>  </a>
-                             <a href='/video/othervideo'><font color='#ff0000'><b><i>Разное</i></b> </font> </a>" );
-    }
-   
-} 
+}
+
 

@@ -8,8 +8,7 @@ class Application_Model_Video extends Zend_Db_Table
 
     public function __construct($_table)
     {
-
-        $this->types = array('weddingvideo' => 1, 'lovestoryvideo' => 2, 'childrenvideo' => 3, 'finalsvideo' => 4, 'othervideo' => 5);
+        $this->types = array('wedding' => 1, 'lovestory' => 2, 'children' => 3, 'finals' => 4, 'other' => 5);
 
         parent::__construct($_table);
     }
@@ -23,9 +22,11 @@ class Application_Model_Video extends Zend_Db_Table
 
     public function getVideo($_type)
     {
-
         /* @var $select Zend_Db_Table_Select */
         $select = $this->select()->where('type = ?', $this->types[$_type])->order(array('ts DESC'));
+
+
+
         return $this->fetchAll($select);
     }
 

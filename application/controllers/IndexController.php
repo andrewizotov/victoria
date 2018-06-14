@@ -20,8 +20,7 @@ class IndexController extends Zend_Controller_Action
 
     public function photoAction()
     {
-        $this->view->assign("title", "<b>Фото</b><br><i>Портфолио фотографа Кривко Татьяны</i><br>");
-        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
+
     }
 
     public function workAction()
@@ -193,33 +192,13 @@ class IndexController extends Zend_Controller_Action
     public function lovestoryAction()
     {
 
-        $photo = new Application_Model_Photo('photo');
 
-        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()) );
-        $this->view->assign("navigation",
-            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
-                             <a href='/index/wedding/'><font color='#ffffff'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/index/lovestory/'><font color='#ff0000'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
-                             <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
-                             <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
-        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
     public function weddingAction()
     {
 
 
-        $photo = new Application_Model_Photo('photo');
-        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
-
-        $this->view->assign("navigation",
-            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
-                             <a href='/index/wedding/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/index/lovestory/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
-                             <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
-                             <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
 
 
 
@@ -230,51 +209,16 @@ class IndexController extends Zend_Controller_Action
     public function childrenAction()
     {
 
-        $photo = new Application_Model_Photo('photo');
-        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
-
-        $this->view->assign("navigation",
-            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
-                             <a href='/index/wedding/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/index/lovestory/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
-                             <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
-                             <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
-
-        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
     }
 
 
     public function otherAction()
     {
-        $photo = new Application_Model_Photo('photo');
-        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
-
-        $this->view->assign("navigation",
-            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
-                             <a href='/index/wedding/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/index/lovestory/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
-                             <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
-                             <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
-        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
 
     }
 
     public function finalsAction()
     {
-        $photo = new Application_Model_Photo('photo');
-        $this->view->assign("list_photo", $photo->getPhotos($this->getRequest()->getActionName()));
-
-        $this->view->assign("navigation",
-            "<a href='/index/photo/'><font color='#ffffff'><b><i>фото</i></b> / </font></a> 
-                             <a href='/index/wedding/'><font color='#ff0000'><b><i>Свадьбы</i></b> /  </font>  </a>
-                             <a href='/index/lovestory/'><font color='#ffffff'><b><i>Love Story</i></b> /</font>  </a>
-                             <a href='/index/children/'><font color='#ffffff'><b><i>Детское</i></b> / </font> 
-                             <a href='/index/finals/'><font color='#ffffff'><b><i>Выпускные альбомы</i></b> / </font>  </a>
-                             <a href='/index/other/'><font color='#ffffff'><b><i>Разное</i></b> </font> </a>" );
-
-        $this->view->assign("url", $this->getFrontController()->getBaseUrl());
 
     }
 

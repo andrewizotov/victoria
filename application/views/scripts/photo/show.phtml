@@ -1,0 +1,46 @@
+<div class="photo-menu">
+    <?php
+    foreach ($this->navigation as $item => $value) {
+        ?>
+        <a class="photo-menu-link" href='<?php echo $value['link'] ?>'>
+            <span class="photo-menu-item"><?php echo $value['translation']; ?></span> /
+        </a>
+        <?php
+    }
+    ?>
+</div>
+
+
+<div id="gallery" style="display:none;">
+    <?php
+
+    foreach ($this->list_photo as $key => $val) {
+        $pos = strripos($val['link'], "/");
+        $name = trim(substr($val['link'], $pos + 1, strlen($val['link']) - $pos));
+
+        ?>
+
+        <a href="<?php echo $this->url ?>">
+            <img alt=""
+                 src="/index/resize?file=img/other/<?php echo $name; ?>&max_size=250"
+                 data-image="<?php echo $val['link']; ?>"
+                 data-description=""
+                 style="display:none">
+        </a>
+
+    <?php } ?>
+
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+        jQuery("#gallery").unitegallery({
+            tiles_type:"nested",
+            tiles_space_between_cols: 8 ,			//space between images
+            tiles_space_between_cols_mobile: 3    //space between cols for mobile type
+        });
+
+    });
+
+</script>
+

@@ -26,7 +26,7 @@ BODY {
   ul#mainlevel-nav li a:hover {Text-decoration: none;}a:link,
   a:visited {Font-Family: Verdana, ARIAL,
   HELVETICA, SANS-SERIF;Font-weight: bold;
-  Font-size: 12px;Text-decoration: none;color: BLACK;}
+  Font-size: 12px;Text-decoration: none;}
   a:hover {color            : #FFFFFF;text-decoration  : none;}
   a.mainlevel:link, a.mainlevel:visited
   {Font-weight: bold;color: WHITE;/*COLOR:#808080;*/;}
@@ -55,3 +55,15 @@ BODY {
   Font-size: 10px;color: #CC9999;BACKGROUND:#33303C;}.content_vote.button
   {Font-Family: Verdana, ARIAL, HELVETICA, SANS-SERIF;Font-weight:
   bold; Font-size: 11px;Font-style: normal;color: #333333;Width: 60px;BACKGROUND:#EEEEEE;BORDER:1PX SOLID #999999;}.cpr{color:white;}
+
+.photo-menu{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.photo-menu-link {
+   color: #ffffff;
+}
+.photo-menu-span {
+    color: #ffffff;
+}

@@ -1,0 +1,82 @@
+<div class="photo-menu">
+    <?php
+    foreach ($this->navigation as $item => $value) {
+        ?>
+        <a class="photo-menu-link" href='<?php echo $value['link'] ?>'>
+            <span class="photo-menu-item"><?php echo $value['translation']; ?></span> /
+        </a>
+        <?php
+    }
+    ?>
+</div>
+
+<div id="gallery" style="margin:0px auto;display:none;">
+    <?php
+
+    foreach ($this->list_video as $key => $val) {
+
+        $p1 = $p2 = $thumb = $code = $title = $service = '';
+
+        $title = $val['title'];
+        $codeStr = $val['code'];
+
+        if (strpos($codeStr,'vimeo')) {
+            $service = 'vimeo';
+            $p1 = strpos($codeStr,'video/');
+            $p2 = strpos($codeStr,'?',$p1+strlen('video/'));
+            if(!$p2) {
+                $p2 = strpos($codeStr,'"',$p1+strlen('video/'));
+            }
+            $code = substr($codeStr, $p1+strlen('video/'), $p2 - ($p1+strlen('video/')) );
+
+            if (empty($title)) {
+                $oembed_endpoint  = 'http://vimeo.com/api/oembed';
+                $videoUrl = 'http://vimeo.com/'.$code;
+                $json_url = $oembed_endpoint . '.json?url=' . rawurlencode($videoUrl);
+                /* @var  $vimeoClient  Zend_Http_Client */
+                 $vimeoClient = $this->vimeoClient;
+                 $this->vimeoClient->setUri($json_url);
+                 /* @var $response Zend_Http_Response */
+                $response = $vimeoClient->request('GET');
+                if($response) {
+                  $data = Zend_Json_Decoder::decode($response->getBody());
+                  if($data) {
+                      $title = $data['title'];
+                      $thumb = $data['thumbnail_url'];
+                  }
+                }
+            }
+        }
+
+        if (strpos($codeStr,'youtube')) {
+            $service = 'youtube';
+            $p1 = strpos($codeStr,'embed/');
+            $p2 = strpos($codeStr,'?',$p1+strlen('embed/'));
+            $code = substr($codeStr, $p1+strlen('embed/'), $p2 - ($p1+strlen('embed/')) );
+        }
+
+        if ($service !== 'youtube' && $service !== 'vimeo') continue;
+        ?>
+        <div data-type="<?php echo $service?>"
+             data-title="<?php echo $title?>"
+             data-thumb="<?php echo $thumb;?>"
+             data-videoid="<?php echo $code?>">
+        </div>
+    <?php } ?>
+</div>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function(){
+
+        jQuery("#gallery").unitegallery({
+            gallery_theme: "video",
+            gallery_width: 900,
+            gallery_height: 500
+        });
+
+    });
+
+</script>
+
+

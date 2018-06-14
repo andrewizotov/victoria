@@ -1,6 +1,6 @@
 <a href="/" class="mainlevel" id="active_menu">Главная</a>
-<span class="mainlevel"> | </span><a href="/index/photo/" class="mainlevel" >Фото</a>
-<span class="mainlevel"> | </span><a href="/index/allvideo/" class="mainlevel" >Видео</a>
+<span class="mainlevel"> | </span><a href="/photo/all" class="mainlevel" >Фото</a>
+<span class="mainlevel"> | </span><a href="/video/all/" class="mainlevel" >Видео</a>
 <span class="mainlevel"> | </span>
 <a href="/index/work/" class="mainlevel" >Услуги</a>
 <span class="mainlevel"> | </span>
